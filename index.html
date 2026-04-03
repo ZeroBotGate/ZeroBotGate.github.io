@@ -50,22 +50,22 @@
             "password"
             ]
         
-        async function hash(pass) {
-            const hash = await bcrypt.hash(pass + noAI, 3);
-            return hash;
+        async function hash( pass ) {
+            return await bcrypt.hash(pass + "noAI", 8);
         }
         
-        async function check( item, index ) {
-            works = hash(pass) === data[index];
+        async function check( pass ) {
+            for (const stored of data) {
+              const match = await bcrypt.compare(pass, stored);
+              if (match) return true;
+            }
+            return false
         }
         
         async function test() {
             const input = await document.getElementById("in");
-            const password = input.innerHTML;
-            const works = false;
-            data.forEach( check );
-            
-            if ( works ) {
+            const pass = input.innerHTML;
+            if ( check(pass) ) {
                 window.location = "/pass.html";
             }
         }
