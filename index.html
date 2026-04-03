@@ -34,13 +34,17 @@
           p {
               font-size:20px;
           }
+          
+          @keyframes flash {
+              from { border-color:red;
+                     color:red; }
+              to {}
+          }
         </style>
     </head>
-
     
     <script>
         const bcrypt = require('bcrypt');
-        const input = document.getElementById("in").innerHTML;
         
         const data = [
             "password"
@@ -52,17 +56,16 @@
         }
         
         async function check( item, index ) {
-            works = hash(item) === data[index];
+            works = hash(pass) === data[index];
         }
         
         async function test() {
+            const input = await document.getElementById("in");
             const password = input.innerHTML;
             const works = false;
             data.forEach( check );
             
             if ( works ) {
-                input.placeholder = "NOT A PASSWORD";
-            } else {
                 window.location = "/pass.html";
             }
         }
@@ -72,10 +75,10 @@
     <body>
         <div style="margin-top:35vh;">
             <h1 style="margin-bottom:20px;">Zero Bot Gate</h1>
-                <input type="password" placeholder="Enter Your Passphrase" name="in" required id="in" class="tostyle">
-                <button onpress="test()" class="tostyle" style="margin-left:20px;width:50px;text-align:center;">></button>
+                <input type="password" placeholder="Enter Your Passphrase" name="in" required id="in" class="tostyle"/>
+                <button type="submit" onsubmit="test()" class="tostyle" style="margin-left:20px;width:50px;text-align:center;margin-bottom:30px;">></button>
             <div></div>
-            <button class="tostyle" onclick="/help.html">Need a new passphrase?</button>
+            <button class="tostyle" href="help.html">Need a new passphrase?</button>
             <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
         </div>
     </body>
