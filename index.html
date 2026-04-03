@@ -38,19 +38,6 @@
     </head>
 
     
-    <body>
-        <div style="margin-top:35vh;">
-            <h1 style="margin-bottom:20px;">Zero Bot Gate</h1>
-            <form onsubmit="test( )">
-                <input type="password" placeholder="Enter Your Passphrase" name="in" required id="in" class="tostyle">
-                <button type="submit" class="tostyle" style="margin-left:20px;width:50px;text-align:center;">></button>
-            </form>
-            <button class="tostyle"" onclick="/help.html">Need a new passphrase?</button>
-            <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
-        </div>
-    </body>
-
-    
     <script>
         const bcrypt = require('bcrypt');
         const feild = document.getElementById("in").innerHTML;
@@ -80,4 +67,17 @@
             }
         }
     </script>
+
+    
+    <body>
+        <div style="margin-top:35vh;">
+            <h1 style="margin-bottom:20px;">Zero Bot Gate</h1>
+            <form onsubmit="test( )">
+                <input type="password" placeholder="Enter Your Passphrase" name="in" required id="in" class="tostyle">
+                <button type="submit" class="tostyle" style="margin-left:20px;width:50px;text-align:center;">></button>
+            </form>
+            <button class="tostyle"" onclick="/help.html">Need a new passphrase?</button>
+            <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
+        </div>
+    </body>
 </html>
