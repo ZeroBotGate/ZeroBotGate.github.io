@@ -47,16 +47,14 @@
         <div style="margin-top:35vh;">
             <h1 style="margin-bottom:20px;">Zero Bot Gate</h1>
                 <input type="password" placeholder="Enter Your Passphrase" name="in" required id="in" class="tostyle"/>
-                <button type="submit" onsubmit="test()" class="tostyle" style="margin-left:20px;width:50px;text-align:center;margin-bottom:30px;">></button>
+                <span type="submit" onclick="test()" class="tostyle" style="margin-left:20px;width:25px;text-align:center;margin-bottom:30px;display:inline-block;">></span>
             <div></div>
             <button class="tostyle" href="help.html">Need a new passphrase?</button>
             <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
         <script>
-
-                
-            const bcrypt = require('bcrypt');
+            
             
             const data = [
                 "password"
@@ -71,7 +69,7 @@
             
             async function check( pass ) {
                 for (const stored of data) {
-                  const match = await bcrypt.compare(pass, stored);
+                  const match = await pass === stored;
                   if (match) return true;
                 }
                 return false;
