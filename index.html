@@ -63,10 +63,15 @@
         }
         
         async function test() {
+            print("starting");
             const input = await document.getElementById("in");
             const pass = input.innerHTML;
+            print("password: " + pass);
+            print("hashed: " + hash(pass);
             if ( check(pass) ) {
-                window.location = "/pass.html";
+                print("APROVED");
+            } else {
+                print("DENIED");
             }
         }
     </script>
