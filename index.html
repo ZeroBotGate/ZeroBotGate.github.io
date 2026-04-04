@@ -85,7 +85,7 @@
                 const pass = input.value;
                 console.log("password: " + pass);
                 console.log("hashed: " + await hash(pass) );
-                if ( check(hash(pass)) ) {
+                if ( check( await hash(pass) ) ) {
                     console.log("APROVED");
                 } else {
                     console.log("DENIED");
