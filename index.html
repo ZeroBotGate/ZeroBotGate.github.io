@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Zero Bots Allowed</title>
@@ -42,41 +43,6 @@
           }
         </style>
     </head>
-    
-    <script>
-        const bcrypt = require('bcrypt');
-        
-        const data = [
-            "password"
-            ]
-        
-        async function hash( pass ) {
-            return await bcrypt.hash(pass + "noAI", 8);
-        }
-        
-        async function check( pass ) {
-            for (const stored of data) {
-              const match = await bcrypt.compare(pass, stored);
-              if (match) return true;
-            }
-            return false
-        }
-        
-        async function test() {
-            print("starting");
-            const input = await document.getElementById("in");
-            const pass = input.innerHTML;
-            print("password: " + pass);
-            print("hashed: " + hash(pass);
-            if ( check(pass) ) {
-                print("APROVED");
-            } else {
-                print("DENIED");
-            }
-        }
-    </script>
-
-    
     <body>
         <div style="margin-top:35vh;">
             <h1 style="margin-bottom:20px;">Zero Bot Gate</h1>
@@ -86,5 +52,41 @@
             <button class="tostyle" href="help.html">Need a new passphrase?</button>
             <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
         </div>
+            <script>
+
+                
+            const bcrypt = require('bcrypt');
+            
+            const data = [
+                "password"
+                ]
+            
+            async function hash( pass ) {
+                return await bcrypt.hash(pass + "noAI", 8);
+            }
+            
+            async function check( pass ) {
+                for (const stored of data) {
+                  const match = await bcrypt.compare(pass, stored);
+                  if (match) return true;
+                }
+                return false;
+            }
+            
+            async function test() {
+                print("starting");
+                const input = await document.getElementById("in");
+                const pass = input.innerHTML;
+                print("password: " + pass);
+                print("hashed: " + hash(pass);
+                if ( check(pass) ) {
+                    print("APROVED");
+                } else {
+                    print("DENIED");
+                }
+            }
+
+                
+        </script>
     </body>
 </html>
