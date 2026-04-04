@@ -28,7 +28,7 @@
               color:#408000;
           }
           
-          button {
+          span {
               cursor:pointer;
           }
           
@@ -47,9 +47,9 @@
         <div style="margin-top:35vh;">
             <h1 style="margin-bottom:20px;">Zero Bot Gate</h1>
                 <input type="password" placeholder="Enter Your Passphrase" name="in" required id="in" class="tostyle"/>
-                <span type="submit" onclick="test()" class="tostyle" style="margin-left:20px;width:25px;text-align:center;margin-bottom:30px;display:inline-block;cursor:pointer;">></span>
+                <span type="submit" onclick="test()" class="tostyle" style="margin-left:20px;width:25px;text-align:center;margin-bottom:30px;display:inline-block;">></span>
             <div></div>
-            <span class="tostyle" onclick="relocate("about")">Need a new passphrase?</span>
+            <span class="tostyle" onclick="relocate('about')">Need a new passphrase?</span>
             <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
