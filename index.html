@@ -52,7 +52,7 @@
             <button class="tostyle" href="help.html">Need a new passphrase?</button>
             <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
         </div>
-            <script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js">
 
                 
             const bcrypt = require('bcrypt');
@@ -62,7 +62,10 @@
                 ]
             
             async function hash( pass ) {
-                return await bcrypt.hash(pass + "noAI", 8);
+                var hash = CryptoJS.SHA256( pass + "noAI" );
+                hash.toString(CryptoJS.enc.Base64);
+                console.log("hashed password " + pass + " into " + hash );
+                return hash;
             }
             
             async function check( pass ) {
@@ -74,15 +77,15 @@
             }
             
             async function test() {
-                print("starting");
+                console.log("starting");
                 const input = await document.getElementById("in");
                 const pass = input.innerHTML;
-                print("password: " + pass);
-                print("hashed: " + hash(pass));
+                console.log("password: " + pass);
+                console.log("hashed: " + hash(pass));
                 if ( check(pass) ) {
-                    print("APROVED");
+                    console.log("APROVED");
                 } else {
-                    print("DENIED");
+                    console.log("DENIED");
                 }
             }
 
