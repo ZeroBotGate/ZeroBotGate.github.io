@@ -62,18 +62,19 @@
                 "0zv0ja7ZCbBF3EdC0a+lYH/sHXXrceh3uNKC9VW/SIM=" // 'this is a test'
                 ]
             
-            async function hash( pass ) {
+            function hash( pass ) {
                 var hash = CryptoJS.SHA256( pass + "noAI" );
                 hash = hash.toString(CryptoJS.enc.Base64);
-                console.log("    > hashed " + pass + " into " + hash );
+                console.log("    hashed " + pass + " into " + hash );
                 return hash;
             }
             
-            async function check( pass ) {
+            function check( pass ) {
                 
                 for (const stored of data) {
                     const match = ( pass === stored );
-                    console.log("checking " + pass + " against " + stored);
+                    console.log("    checking " + pass + " against " + stored);
+                    console.log("    > returned " + match);
                     if (match) return true;
                 }
                 return false;
@@ -84,8 +85,9 @@
                 const input = await document.getElementById("in");
                 const pass = input.value;
                 console.log("password: " + pass);
-                console.log("hashed: " + await hash(pass) );
-                if ( check( await hash(pass) ) ) {
+                console.log("hashed: " + hash(pass) );
+                console.log("checkign against data");
+                if ( check( hash(pass) ) ) {
                     console.log("APROVED");
                 } else {
                     console.log("DENIED");
