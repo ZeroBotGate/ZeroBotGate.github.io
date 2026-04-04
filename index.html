@@ -62,12 +62,13 @@
             
             async function hash( pass ) {
                 var hash = CryptoJS.SHA256( pass + "noAI" );
-                hash.toString(CryptoJS.enc.Base64);
-                console.log("hashed password " + pass + " into " + hash );
+                hash = hash.toString(CryptoJS.enc.Base64);
+                console.log("hashed " + pass + " into " + hash );
                 return hash;
             }
             
             async function check( pass ) {
+                
                 for (const stored of data) {
                   const match = await pass === stored;
                   if (match) return true;
@@ -76,12 +77,12 @@
             }
             
             async function test() {
-                console.log("starting");
+                console.log("STARTING");
                 const input = await document.getElementById("in");
-                const pass = input.innerHTML;
+                const pass = input.value;
                 console.log("password: " + pass);
                 console.log("hashed: " + hash(pass));
-                if ( check(pass) ) {
+                if ( check(hash(pass)) ) {
                     console.log("APROVED");
                 } else {
                     console.log("DENIED");
