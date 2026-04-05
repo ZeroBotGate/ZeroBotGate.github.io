@@ -4,43 +4,56 @@
         <title>Zero Bots Allowed</title>
         <link rel="icon" type="image/x-icon" href="icon.png">
         <style>
-          body {
-              text-align:center;
-              background:#408000;
-              color:#80ff00;
-              font-size:25px;
-              padding:10px;
-          }
+            body {
+                text-align:center;
+                background:#408000;
+                color:#aaff00;
+                font-size:25px;
+                padding:10px;
+            }
+            
+            .tostyle {
+                background:#408000;
+                color:#aaff00;
+                border:none;
+                font-size:20px;
+                border-radius:10px;
+                padding:10px;
+                border:solid 3px #aaff00;
+                transition:.5s;
+            }
+            
+            .tostyle:hover{
+                background:#aaff00;
+                color:#408000;
+            }
+            
+            span {
+                cursor:pointer;
+            }
+            
+            p {
+                font-size:20px;
+                padding-top:10px;
+            }
+            
+            .bar {
+                text-align:center;
+                position:fixed;
+                bottom:20px;
+                left:50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            .bar > span {
+                color:#264D00;
+                margin:20px;
+            }
           
-          .tostyle {
-              background:#408000;
-              color:#80ff00;
-              border:none;
-              font-size:20px;
-              border-radius:10px;
-              padding:10px;
-              border:solid 3px #80ff00;
-              transition:.5s;
-          }
-          
-          .tostyle:hover{
-              background:#80ff00;
-              color:#408000;
-          }
-          
-          span {
-              cursor:pointer;
-          }
-          
-          p {
-              font-size:20px;
-          }
-          
-          @keyframes flash {
-              from { border-color:red;
-                     color:red; }
-              to {}
-          }
+            @keyframes flash {
+                from { border-color:red;color:red; }
+                to {}
+            }
         </style>
     </head>
     <body>
@@ -49,8 +62,12 @@
                 <input type="password" placeholder="Enter Your Passphrase" name="in" required id="in" class="tostyle"/>
                 <span type="submit" onclick="test()" class="tostyle" style="margin-left:20px;width:25px;text-align:center;margin-bottom:30px;display:inline-block;">></span>
             <div></div>
-            <span class="tostyle" onclick="relocate('about')">Need a new passphrase?</span>
-            <p>By entering a passphrase and proceeding, you agree to our ToS.</p>
+            <span class="tostyle" onclick="relocate('new')">Need a new passphrase?</span>
+            <p>By entering a passphrase and proceeding, you agree to our T&C.</p>
+        </div>
+        <div class="bar">
+            <span onckick="relocate('agree')">View T&C</span>
+            <span onckick="relocate('about')">About ZBG</span>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
         <script>
